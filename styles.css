@@ -7,12 +7,16 @@ body {
     margin: 0;
     padding: 0;
 }
+.hide{
+    display: none;
+}
 header{
     /* background-color: black; */
     height: 400px;
     text-align: center;
 }
-header .logo a{
+
+.logo a{
     background-image: url("sources/pics/profile.png");
     background-size: 150px;
     display: inline-block;
@@ -22,12 +26,13 @@ header .logo a{
     top: -60px;
     width: 150px;
 }
+
 ul{
     margin: 0px;
     padding: 0px;
     list-style-type: none;
 }
-li{
+.desktop li{
     display: inline-block;
     margin: 0px 90px;
     font-weight: bold;
@@ -35,8 +40,44 @@ li{
     letter-spacing: 10px;
     padding-top: 80px;    
 }
-li a{
+a{
     text-decoration: none;
+}
+.mobile li{
+    display: none;
+    /* border: black solid; */
+    margin: 20% -10px 0px;
+    padding: 6px;
+    font-size: 35px;
+}
+.mob-nav{
+    letter-spacing: 10px;
+    background-color: rgba(0, 0, 0, 0.486);
+    width: 140px;
+    /* padding: 0px 4px; */
+    border-radius: 20px;
+    text-indent: 12px;
+}
+.mob-nav a{
+    color: rgba(255, 255, 255, 0.85);
+}
+.mob-logo{
+    background-image: url("sources/pics/profile.png");
+    background-size: 112px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: -30px;
+    text-indent: -999999px;
+}
+/* RESPONSIVE RULES */
+@media screen and (max-width: 865px){
+    .desktop{
+        display: none;
+    }
+    .mobile li{
+        display: inline-block;
+    }
 }
 section{
     /* background-color: brown; */

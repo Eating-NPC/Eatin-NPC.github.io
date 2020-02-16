@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到我个人网站！</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="desktop">
             <ul>
                 <!-- <li><a href="index.html">主页</a></li> -->
                 <li><a href="locations.html">兴趣</a></li>
@@ -17,14 +18,28 @@
                 <li><a href="contact.html">项目</a></li>
             </ul>
         </nav>
-        <h1>简介</h1>
+        <nav class="mobile" >
+            <ul>
+                <li class="mob-nav"><a href="locations.html">兴&nbsp;趣</a>
+                </li><li class="mob-logo">移动版头像
+                </li><li class="mob-nav"><a href="contact.html">项&nbsp;目</a></li>
+            </ul>    
+        </nav>
+        <h1 class="hide">简介</h1>
     </header>
-    <section>
+    <section class="hide">
         <div>a</div>
         <div>b</div>
         <div>c</div>
     </section>
-    <section>lower</section>
-    <footer>footer</footer>
+    <section class="hide">lower</section>
+    <footer class="hide">footer</footer>
+    <script src="sources/jquery-3.4.1.min.js"></script>
+    <script>$(function(){
+        $(".mob-logo").on("click",function(){
+            $('.mob-nav').fadeToggle();
+        });
+    })
+    </script>
 </body>
 </html>
