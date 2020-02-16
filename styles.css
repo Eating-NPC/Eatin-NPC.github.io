@@ -1,7 +1,9 @@
-body{
+body {
     background-image: url("sources/pics/homeBackground.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
@@ -39,6 +41,7 @@ li a{
 section{
     /* background-color: brown; */
     display: flex;
+    margin-bottom: 100px;
 }
 div{
     /* background-color: violet; */
