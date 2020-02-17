@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制问题</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="third">
+    <h1>测试</h1>
+        <p>请回答以下问题，以确保您已经理解了实验规则。</p>
+        <p>如果您<span>答错5次</span>，将被取消实验资格，并且无法获得报酬。</p>
+    <h2>注意:</h2>
+        <p>每轮开始时，每个人将获得10个点的初始资金。</p>
+        <p>每轮投资结束后，所有成员的投资值将加总并扩大1.5倍，并在所有人之间平均分配。</p>
+    <h3><strong>问题1.</strong> 考虑以下两种情形:</h3>
+        <div>
+            <p>a. 2个小组成员都投资了0个点</p>
+            <p>b. 2个小组成员都投资了3个点</p>
+            <p>在哪种情形下您会得到更多的点数?</p>
+            <ul id="q1">
+                <li>A.情形A</li>
+                <li class='answer'>B.情形B</li>
+                <li>C.一样多</li>
+                <li class="wrong" style="display: none;">答案错误</li>
+            </ul>
+        </div>
+    <h3><strong>问题2.</strong> 考虑以下两种情形:</h3>
+        <div>
+            <p>a. 组内其他1个成员都投资了3个点，但你投资了0个点</p>
+            <p>b. 2个小组成员都投资了3个点</p>
+            <p>在哪种情形下您会得到更多的点数?</p>
+            <ul id="q2">
+                <li class="answer">A.情形A</li>
+                <li>B.情形B</li>
+                <li>C.一样多</li>
+                <li class="wrong" style="display: none;">答案错误</li>
+            </ul>
+        </div>
+    <a href="second.html" class="back">返回</a>
+    <a class="next">继续<label>(你还有<span id='cnt'>5</span>次)</label></a>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            $('#q1 li').on('click',function(){
+                $('#q1').find('.selected').removeClass('selected');
+                $(this).addClass('selected');
+            });
+            $('#q2 li').on('click',function(){
+                $('#q2').find('.selected').removeClass('selected');
+                $(this).addClass('selected');
+            });
+            var cnt = 0;
+            $('.next').on('click',function(){
+                if(cnt<5){
+                    if($('#q1').find('.selected').html()===$('#q1 .answer').html()){
+                        // console.log($('#q1').find('.selected').val()===$('.answer').val());
+                        if($('#q2').find('.selected').html()===$('#q2 .answer').html()){
+                            $(this).attr('href','fourth.html')
+                        }
+                        else{
+                            cnt++;
+                            $('#q2 .wrong').attr('style','display:block;');
+                        }
+                        $('#q1 .wrong').attr('style','display:none;');
+                    }
+                    else{
+                        cnt++;
+                        $('#q1 .wrong').attr('style','display:block;');
+                        if($('#q2').find('.selected').html()===$('#q2 .answer').html()){
+                            $('#q2 .wrong').attr('style','display:none;');
+                        }
+                        else
+                            $('#q2 .wrong').attr('style','display:block;');
+                    }
+                }
+                else{
+                    $(this).attr('href','failed.html')
+                }
+                $('#cnt').html(parseInt(5-cnt));
+            });
+        })
+    </script>
+</body>
+</html>
