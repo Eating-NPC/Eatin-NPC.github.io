@@ -7,7 +7,7 @@ body{
 }
 p{
     text-indent: 2em;
-    text-align-last: left;
+    /* text-align-last: left; */
 }
 h1{
     color: cornflowerblue;
